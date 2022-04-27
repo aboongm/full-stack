@@ -1,5 +1,5 @@
-## Full Stack Open 2022
+# Full Stack Open 2022
 
-# part0
+## part0
 
-# part1
+## part1
