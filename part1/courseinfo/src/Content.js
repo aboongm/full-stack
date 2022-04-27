@@ -2,11 +2,12 @@ import React from 'react';
 import Part from './Part';
 
 const Content = (props) => {
+  // console.log(props);
   return (
     <div>
-      <Part part={props.part.part1} exercise={props.exercises.exercises1} />
-      <Part part={props.part.part2} exercise={props.exercises.exercises2} />
-      <Part part={props.part.part3} exercise={props.exercises.exercises3} />
+      <Part part={props.part.part1} />
+      <Part part={props.part.part2} />
+      <Part part={props.part.part3} />
     </div>
   );
 };
