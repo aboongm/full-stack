@@ -1,17 +1,22 @@
 import React from 'react';
-import Header from './Header';
 import StatisticLine from './StatisticLine';
 
-const Statistics = () => {
+const Statistics = ({ feedback }) => {
+  const all = feedback.reduce((acc, index) => acc + index, 0);
+  const average = all / feedback.length;
+  const positive = feedback[0] / all;
+  if (feedback[0] === 0 && feedback[1] === 0 && feedback[2] === 0) {
+    return <div>No feedBack given</div>;
+  }
+
   return (
     <>
-      <Header text="statistics" />
-      <StatisticLine text="good" number={6} />
-      <StatisticLine text="neutral" number={2} />
-      <StatisticLine text="good" number={1} />
-      <StatisticLine text="all" number={9} />
-      <StatisticLine text="average" number={0.55} />
-      <StatisticLine text="positive" number={66.5} />
+      <StatisticLine feedback={feedback[0]} text="good" />
+      <StatisticLine feedback={feedback[1]} text="neutral" />
+      <StatisticLine feedback={feedback[2]} text="bad" />
+      <StatisticLine feedback={all} text="all" />
+      <StatisticLine feedback={average} text="average" />
+      <StatisticLine feedback={positive} text="positive%" />
     </>
   );
 };

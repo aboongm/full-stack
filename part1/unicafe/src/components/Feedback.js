@@ -2,14 +2,14 @@ import React from 'react';
 import Header from './Header';
 import Button from './Button';
 
-const Feedback = () => {
+const Feedback = (props) => {
   return (
     <>
       <Header text="give feedback" />
       <div className="btn-container">
-        <Button text="good" />
-        <Button text="neutral" />
-        <Button text="bad" />
+        <Button handleClick={props.handleClick} text="good" />
+        <Button handleClick={props.handleClick} text="neutral" />
+        <Button handleClick={props.handleClick} text="bad" />
       </div>
     </>
   );

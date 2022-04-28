@@ -1,12 +1,10 @@
 import React from 'react';
 
-const StatisticLine = (props) => {
+const StatisticLine = ({ feedback, text }) => {
   return (
-    <>
-      <p>
-        {props.text} {props.number}
-      </p>
-    </>
+    <div>
+      {text}: {feedback}
+    </div>
   );
 };
 
