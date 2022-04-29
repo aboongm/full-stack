@@ -1,0 +1,20 @@
+
+Browser->Server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+
+Note over browser:
+When the input field is filled and submit,
+there is only one HTTP POST request.
+The server gives a HTTP status code 201.
+The POST request to the address new_note_spa contains the new note 
+as JSON-data containing both the content of the note (content) and 
+the timestamp (date).
+The Content-Type header of the request tells the server that the
+included data is represented in the JSON format.
+
+The SPA version of the app does not send the form data in the traditional way,
+as we can see in the form tag, there is action attribute
+but instead uses the JavaScript code it fetched from the server.
+The JavaScript code using event handler creates a new note, 
+adds it to the notes list with the command notes.push(note), 
+rerenders the note list on the page and sends the new note to the server.
+end note
