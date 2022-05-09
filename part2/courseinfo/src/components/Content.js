@@ -10,6 +10,13 @@ const Content = ({ parts }) => {
           </li>
         ))}
       </ul>
+      <h4>
+        total of{' '}
+        {parts
+          .map((item) => item.exercises)
+          .reduce((acc, index) => acc + index, 0)}{' '}
+        exercises
+      </h4>
     </>
   );
 };
