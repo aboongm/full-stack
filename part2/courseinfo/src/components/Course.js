@@ -3,11 +3,10 @@ import Header from './Header';
 import Content from './Content';
 
 const Course = ({ course }) => {
-  const { id, name, parts } = course;
   return (
     <>
-      <Header name={name} />
-      <Content parts={parts} key={id} />
+      <Header key={course.id} name={course.name} />
+      <Content parts={course.parts} />
     </>
   );
 };
