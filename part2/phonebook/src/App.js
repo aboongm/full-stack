@@ -13,9 +13,19 @@ const App = () => {
     const nameObj = {
       name: newName,
     };
-    setPersons(() => {
-      return [...persons, nameObj];
+
+    const filterName = persons.filter((person) => {
+      if (newName === person.name) {
+        return alert(`${newName} is already added to phonebook`);
+      }
+      return newName !== person.name;
     });
+
+    setPersons(() =>
+      filterName.length !== persons.length
+        ? [...persons]
+        : [...persons, nameObj]
+    );
     setNewName('');
   };
 
@@ -38,8 +48,8 @@ const App = () => {
         </div>
       </form>
       <h2>Numbers</h2>
-      {persons.map((person) => (
-        <p key={person.name}>{person.name}</p>
+      {persons.map((person, index) => (
+        <p key={index}>{person.name}</p>
       ))}
     </div>
   );
