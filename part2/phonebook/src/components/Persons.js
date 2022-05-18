@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Persons = ({ filtered }) => {
-  console.log(filtered);
   return (
     <>
       {filtered.map((person, index) => (
