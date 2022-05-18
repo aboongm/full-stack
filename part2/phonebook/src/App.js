@@ -1,4 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import Filter from './components/Filter';
+import PersonForm from './components/PersonForm';
+import Persons from './components/Persons';
 
 const App = () => {
   const [persons, setPersons] = useState([
@@ -7,6 +10,7 @@ const App = () => {
     { name: 'Dan Abramov', number: '12-43-234345', id: 3 },
     { name: 'Mary Poppendieck', number: '39-23-6423122', id: 4 },
   ]);
+
   const [newName, setNewName] = useState('');
   const [newNumber, setNewNumber] = useState('');
   const [filterNames, setFilterNames] = useState('');
@@ -51,48 +55,17 @@ const App = () => {
   return (
     <div>
       <h2>Phonebook</h2>
-      <p>
-        filter shown with
-        <input
-          type="text"
-          name="search"
-          placeholder="search"
-          value={filterNames}
-          onChange={handleFilterName}
-        />
-      </p>
+      <Filter filterNames={filterNames} handleFilterName={handleFilterName} />
       <h2>add a new</h2>
-      <form onSubmit={addNameNumber}>
-        <div>
-          name:{' '}
-          <input
-            type="text"
-            name="name"
-            placeholder="Name"
-            value={newName}
-            onChange={handleNameChange}
-          />
-        </div>
-        <div>
-          number:{' '}
-          <input
-            type="text"
-            name="number"
-            placeholder="Phone Number"
-            value={newNumber}
-            onChange={handleNumberChange}
-          />
-        </div>
-        <div>
-          <button type="submit">add</button>
-        </div>
-      </form>
+      <PersonForm
+        addNameNumber={addNameNumber}
+        newName={newName}
+        handleNameChange={handleNameChange}
+        newNumber={newNumber}
+        handleNumberChange={handleNumberChange}
+      />
       <h2>Numbers</h2>
-      {filtered.map((person, index) => (
-        <p key={index}>
-          {person.name} {person.number}
-        </p>
-      ))}
+      <Persons filtered={filtered} />
     </div>
   );
 };
